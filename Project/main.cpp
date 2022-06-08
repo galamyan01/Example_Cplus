@@ -15,7 +15,7 @@ int main() {
     switch (pz)
     {
     case 2:
-         pz2();
+        pz2();
         break;
     case 3:
         cout << "Работа не выполнена" << endl;
@@ -32,21 +32,22 @@ int main() {
     }
 }
 void pz2() {
-    setlocale(LC_ALL, "Russian");
     int a, b, c;
     cout << "Введите Растояние отрезка А:" << endl;
     cin >> a;
     cout << "Введите Растояние отрезка B:" << endl;
-    cin >> b;
-    if (a > b) {
-        c = a / b;
-        cout << "Количество отрезков В , размещенных на отрезке A:" << c;
-    }
-    else if (a == b) {
-        cout << "Отрезок B, равен отрезку A." << endl;
-    }
-    else {
-        cout << "Отрезок B, больше отрезка A." << endl;
-    }
+    cin >> b; 
     
+    try {
+        if (a > b) {
+                c = a / b;
+                cout << "Количество отрезков В , размещенных на отрезке A:" << c;
+        }
+        else {
+            throw 1;
+        }
+    }
+    catch (int) {
+        cout << "Отрезок B накладывается полностью , на отрезок А" << endl;
+    }    
 }
